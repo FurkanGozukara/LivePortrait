@@ -16,18 +16,18 @@ pretrained_weights/liveportrait_animals
 
 # Ipython notebook
 *.ipynb
-
+.vs
 # Temporary files or benchmark resources
 animations/*
 tmp/*
 .vscode/launch.json
 **/*.DS_Store
 gradio_temp/**
-
+venv
 # Windows dependencies
 ffmpeg/
 LivePortrait_env/
-
+pretrained_weights
 # XPose build files
 src/utils/dependencies/XPose/models/UniPose/ops/build
 src/utils/dependencies/XPose/models/UniPose/ops/dist
