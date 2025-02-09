@@ -41,7 +41,7 @@ class ArgumentConfig(PrintableConfig):
     vx_ratio: float = 0  # the ratio to move the face to left or right in cropping space
     vy_ratio: float = -0.125  # the ratio to move the face to up or down in cropping space
     flag_do_rot: bool = True  # whether to conduct the rotation when flag_do_crop is True
-    source_max_dim: int = 1280 # the max dim of height and width of source image or video, you can change it to a larger number, e.g., 1920
+    source_max_dim: int = 1920 # the max dim of height and width of source image or video, you can change it to a larger number, e.g., 1920
     source_division: int = 2 # make sure the height and width of source image or video can be divided by this number
 
     ########## driving crop arguments ##########
