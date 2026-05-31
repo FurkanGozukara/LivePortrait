@@ -122,8 +122,8 @@ with gr.Blocks(theme=gr.themes.Soft(font=[gr.themes.GoogleFont("Plus Jakarta San
                     vy_ratio = gr.Number(value=-0.125, label="source crop y", minimum=-0.5, maximum=0.5, step=0.01)
 
         with gr.Column():
-            with gr.Tabs():
-                with gr.TabItem("📁 Driving Pickle") as tab_pickle:
+            with gr.Tabs(selected="driving_video"):
+                with gr.TabItem("📁 Driving Pickle", id="driving_pickle") as tab_pickle:
                     with gr.Accordion(open=True, label="Driving Pickle"):
                         driving_video_pickle_input = gr.File()
                         gr.Examples(
@@ -139,7 +139,7 @@ with gr.Blocks(theme=gr.themes.Soft(font=[gr.themes.GoogleFont("Plus Jakarta San
                             inputs=[driving_video_pickle_input],
                             cache_examples=False,
                         )
-                with gr.TabItem("🎞️ Driving Video") as tab_video:
+                with gr.TabItem("🎞️ Driving Video", id="driving_video") as tab_video:
                     with gr.Accordion(open=True, label="Driving Video"):
                         driving_video_input = gr.Video()
                         gr.Examples(
@@ -155,7 +155,7 @@ with gr.Blocks(theme=gr.themes.Soft(font=[gr.themes.GoogleFont("Plus Jakarta San
                             cache_examples=False,
                         )
 
-                    tab_selection = gr.Textbox(visible=False)
+                    tab_selection = gr.Textbox(value="Video", visible=False)
                     tab_pickle.select(lambda: "Pickle", None, tab_selection)
                     tab_video.select(lambda: "Video", None, tab_selection)
             with gr.Accordion(open=True, label="Cropping Options for Driving Video"):
@@ -194,8 +194,8 @@ with gr.Blocks(theme=gr.themes.Soft(font=[gr.themes.GoogleFont("Plus Jakarta San
         # Examples
         gr.Markdown("## You could also choose the examples below by one click ⬇️")
     with gr.Row():
-        with gr.Tabs():
-            with gr.TabItem("📁 Driving Pickle") as tab_video:
+        with gr.Tabs(selected="driving_examples_video"):
+            with gr.TabItem("📁 Driving Pickle", id="driving_examples_pickle") as tab_video:
                 gr.Examples(
                     examples=data_examples_i2v_pickle,
                     fn=gpu_wrapped_execute_video,
@@ -211,7 +211,7 @@ with gr.Blocks(theme=gr.themes.Soft(font=[gr.themes.GoogleFont("Plus Jakarta San
                     examples_per_page=len(data_examples_i2v_pickle),
                     cache_examples=False,
                 )
-            with gr.TabItem("🎞️ Driving Video") as tab_video:
+            with gr.TabItem("🎞️ Driving Video", id="driving_examples_video") as tab_video:
                 gr.Examples(
                     examples=data_examples_i2v,
                     fn=gpu_wrapped_execute_video,
